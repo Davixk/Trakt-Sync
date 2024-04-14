@@ -1,24 +1,27 @@
 import pandas, re
+from typing import Optional
 from pandas import DataFrame
 from datetime import datetime
 
 from src.base.shows import Show, Season, Episode
 from src.base.movies import Movie
 
+DEFAULT_FILE_PATH = 'data/NetflixViewingHistory.csv'
+
 
 class Netflix:
     def read_profile_dump(self,
-        file_path: str = None,
+        file_path: Optional[str] = None,
         ) -> DataFrame:
         if not file_path:
-            file_path = 'data/NetflixViewingHistory.csv'
+            file_path = DEFAULT_FILE_PATH
 
         data = pandas.read_csv(file_path)
         self.raw_data = data
         return data
     
     def get_media(self,
-        data: DataFrame = None,
+        data: Optional[DataFrame] = None,
         ):
         if not data:
             data = self.read_profile_dump()
