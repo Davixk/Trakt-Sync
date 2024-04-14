@@ -10,7 +10,7 @@ class Movie(Media):
     def __init__(self,
         title: str,
         premiered: Optional[Datetime] = None,
-        consumed: Optional[Sequence[Datetime]] = [],
+        consumed: Optional[Sequence[Datetime]] = None,
         genres: Optional[Sequence[str]] = [],
         cast: Optional[Sequence[Individual]] = [],
         director: Optional[Individual] = None,
@@ -18,5 +18,3 @@ class Movie(Media):
         super().__init__(title, premiered, consumed, genres)
         self.cast = cast
         self.director = director
-        pass
-    pass

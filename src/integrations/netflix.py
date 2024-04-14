@@ -53,7 +53,6 @@ class Netflix:
                     season = Season(show=show, number=season_number, title=season_str)
                     if episode_str:
                         episode = Episode(title=episode_str, show=show, season=season)
-                        season.episodes.append(episode)
                         return episode
                     else: return season
                 else: return show

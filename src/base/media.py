@@ -9,11 +9,10 @@ class Media(ABC):
     def __init__(self,
         title: str,
         premiered: Optional[Datetime] = None,
-        consumed: Optional[Sequence[Datetime]] = [],
-        genres: Optional[Sequence[str]] = [],
+        consumed: Optional[Sequence[Datetime]] = None,
+        genres: Optional[Sequence[str]] = None,
         ):
         self.title = title
         self.premiered = premiered
-        self.genres = genres
-        self.consumed = consumed
-        pass
+        self.genres = genres if genres is not None else []
+        self.consumed = consumed if consumed is not None else []
